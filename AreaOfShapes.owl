@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/AreaOfShapes#"
+     xml:base="http://www.example.org/AreaOfShapes"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/AreaOfShapes"/>
+    <!-- Classes -->
+    <owl:Class rdf:about="http://www.example.org/AreaOfShapes#Shape"/>
+    <owl:Class rdf:about="http://www.example.org/AreaOfShapes#Rectangle"/>
+    <owl:Class rdf:about="http://www.example.org/AreaOfShapes#Triangle"/>
+    <owl:Class rdf:about="http://www.example.org/AreaOfShapes#Circle"/>
+    <owl:Class rdf:about="http://www.example.org/AreaOfShapes#Dimension"/>
+    <owl:Class rdf:about="http://www.example.org/AreaOfShapes#Formula"/>
+    <!-- Object Properties -->
+    <owl:ObjectProperty rdf:about="http://www.example.org/AreaOfShapes#hasDimension"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/AreaOfShapes#usesFormula"/>
+    <!-- Data Properties -->
+    <owl:DatatypeProperty rdf:about="http://www.example.org/AreaOfShapes#dimensionValue">
+        <rdfs:domain rdf:resource="http://www.example.org/AreaOfShapes#Dimension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.example.org/AreaOfShapes#formulaExpression">
+        <rdfs:domain rdf:resource="http://www.example.org/AreaOfShapes#Formula"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <!-- Instances -->
+    <!-- Rectangle -->
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Rectangle">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Shape"/>
+        <usesFormula rdf:resource="http://www.example.org/AreaOfShapes#Formula_Rectangle"/>
+        <hasDimension rdf:resource="http://www.example.org/AreaOfShapes#Dimension_Length"/>
+        <hasDimension rdf:resource="http://www.example.org/AreaOfShapes#Dimension_Width"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Formula_Rectangle">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Formula"/>
+        <formulaExpression rdf:datatype="http://www.w3.org/2001/XMLSchema#string">length * width</formulaExpression>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Dimension_Length">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Dimension"/>
+        <dimensionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0</dimensionValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Dimension_Width">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Dimension"/>
+        <dimensionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0</dimensionValue>
+    </rdf:Description>
+
+    <!-- Triangle -->
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Triangle">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Shape"/>
+        <usesFormula rdf:resource="http://www.example.org/AreaOfShapes#Formula_Triangle"/>
+        <hasDimension rdf:resource="http://www.example.org/AreaOfShapes#Dimension_Base"/>
+        <hasDimension rdf:resource="http://www.example.org/AreaOfShapes#Dimension_Height"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Formula_Triangle">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Formula"/>
+        <formulaExpression rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(base * height) / 2</formulaExpression>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Dimension_Base">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Dimension"/>
+        <dimensionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0</dimensionValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Dimension_Height">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Dimension"/>
+        <dimensionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0</dimensionValue>
+    </rdf:Description>
+
+    <!-- Circle -->
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Circle">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Shape"/>
+        <usesFormula rdf:resource="http://www.example.org/AreaOfShapes#Formula_Circle"/>
+        <hasDimension rdf:resource="http://www.example.org/AreaOfShapes#Dimension_Radius"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Formula_Circle">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Formula"/>
+        <formulaExpression rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pi * radius^2</formulaExpression>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/AreaOfShapes#Dimension_Radius">
+        <rdf:type rdf:resource="http://www.example.org/AreaOfShapes#Dimension"/>
+        <dimensionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0</dimensionValue>
+    </rdf:Description>
+</rdf:RDF>
